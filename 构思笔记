@@ -1,0 +1,38 @@
+商品：数据
+{
+	goodsId:''//商品id   String
+	goodsType:''//商品类型：Sting
+	goodsTitle:''//商品标题  String
+	goodsPrice:''//商品价格  Number
+	goodsSellCount:''//商品销量 Number
+	goodsCommentsCount:''//商品评价数量
+
+}
+商品类型编码说明:（本数据从中关村在线商城爬取的数据 评价和交易记录爬不到。。可能做反爬处理啦~~）
+c69:平板电脑
+c34:手机/手机配件
+c1:主板硬件
+c42家电
+c3：办公设配
+c35:相机
+c32：无线网路
+c58：游戏机
+c79：智能家居
+c84：智能穿戴
+商品ID获取正则
+  function getGoodsId(str){
+   let pattern = /\{(.+?)\}/g;
+   let objStr = str.match(pattern)[0];
+   let goods = eval("("+objStr+")");
+   return goods.goodsId
+  }
+  购物车
+  {
+  goods:[],
+  goodsTotalCount:Number,
+  goodsTotalPrice:Number,
+  }
+  订单
+  {
+  goods：[]
+  }
